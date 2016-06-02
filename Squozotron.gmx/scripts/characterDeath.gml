@@ -1,0 +1,2 @@
+/// characterDeath()
+game_restart(); 
