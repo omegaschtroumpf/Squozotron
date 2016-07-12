@@ -26,7 +26,16 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_enemy_coverer2</sprite>
+    <sprite>sprites\spr_enemy_seeker2</sprite>
     <sprite>sprites\spr_bullet1</sprite>
+    <sprite>sprites\spr_enemy_seeker</sprite>
+    <sprite>sprites\spr_enemy_shooter</sprite>
+    <sprite>sprites\spr_solidwall</sprite>
+    <sprite>sprites\spr_bandolier</sprite>
+    <sprite>sprites\spr_overdorg</sprite>
+    <sprite>sprites\spr_dorg2</sprite>
+    <sprite>sprites\spr_cover</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_main</background>
@@ -39,18 +48,29 @@
     <script>scripts\loadGlobals.gml</script>
   </scripts>
   <objects name="objects">
+    <objects name="Inheritance">
+      <object>objects\obj_solids</object>
+      <object>objects\obj_actor</object>
+      <object>objects\obj_environment</object>
+      <object>objects\obj_enemy</object>
+    </objects>
+    <object>objects\obj_bullet</object>
     <objects name="Control">
       <object>objects\obj_control</object>
       <object>objects\obj_stats</object>
     </objects>
-    <object>objects\obj_character_solids</object>
-    <object>objects\obj_targetable</object>
     <objects name="Characters">
       <objects name="Player">
         <object>objects\obj_character</object>
-        <object>objects\obj_bullet</object>
+      </objects>
+      <objects name="Enemies">
+        <object>objects\obj_enemy_shooter</object>
+        <object>objects\obj_coverer</object>
+        <object>objects\obj_enemydorg</object>
       </objects>
     </objects>
+    <object>objects\obj_solidwall</object>
+    <object>objects\obj_cover</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_arena</room>

@@ -14,6 +14,10 @@ if (gamepad_is_connected(deviceID)) {
     raw_squoze = gamepad_button_value(deviceID, gp_shoulderlb);
     // shoot button - right trigger
     shooting = gamepad_button_check(deviceID, gp_shoulderrb);
+    sprinting = gamepad_button_check(deviceID, gp_face1);
+    // update image_angle if just beginning to sprint
+    if (gamepad_button_check_pressed(deviceID, gp_face1))
+        image_angle = point_direction(0, 0, x_axisL, y_axisL);
     
 }
 else {
