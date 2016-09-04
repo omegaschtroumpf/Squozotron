@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Character constants and variables
+            <string>event_inherited();
+
+/// Character constants and variables
 
 // constants
 MOVEMENT_SPEED = 3;
@@ -50,6 +52,7 @@ BULLET_STRENGTH = 10;
 //image_yscale = 3;
 image_speed = 0;
 image_angle = direction;
+
 
 // character variables
 character_health = 2; //currently just tracking player hits

@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// setup
+            <string>event_inherited();
+
+/// setup
 image_speed = 0;
 seek_speed = 1.5;
 

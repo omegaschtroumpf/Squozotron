@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// setup
+            <string>event_inherited();
+
+/// setup
 image_speed = .25;
 enemy_health = 50;
 seek_speed = 4.5;

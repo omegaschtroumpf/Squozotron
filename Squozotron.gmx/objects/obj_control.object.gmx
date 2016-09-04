@@ -28,6 +28,7 @@
             <string>/// Related Objects
 
 player = 0;
+gen_steps = 0;
 
 loadGlobals();
 </string>
@@ -52,55 +53,24 @@ loadGlobals();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Handle Sword-lock.  Display focus. And score.
-/*    
-//Display score, too:
-//simple score
-if player1.character_health == 0 { 
-    score2 +=1};
+            <string>gen_steps++;
 
-if player2.character_health == 0 {
-    score1 +=1}
-
-
-// Need to handle sword-lock here for duel.
-
-if (player1.sword_lock &amp;&amp; player2.sword_lock) {
-    if (player1.dash_button_pressed) {
-        player1.sword_lock_button_count++;
-    }
-    if (player2.dash_button_pressed) {
-        player2.sword_lock_button_count++;
-    }
-    var losing_player = 0;   
-    var winning_player = 0; 
- 
-    if (player1.sword_lock_button_count &gt; player2.sword_lock_button_count + player1.SWORD_LOCK_BUTTON_LEAD) {
-        losing_player = player2;
-        winning_player = player1;
-    }
-    if (player2.sword_lock_button_count &gt; player1.sword_lock_button_count + player2.SWORD_LOCK_BUTTON_LEAD) {
-        losing_player = player1;
-        winning_player = player2;
-    }
-    if (losing_player != 0) {
-        alarm[0] = -1;
-        with (losing_player) {
-            sword_lock = false;
-            motion_set(image_angle - 180, QUICKSTEP_SPEED_BASE);
-            // set starting friction and then each step it will increase
-            friction = QUICKSTEP_FRICTION_BASE;
-            // stun time
-            stunned = true;
-            alarm[8] = QUICKSTEP_LONG_STUN_DELAY;
-        }
-        with (winning_player) {
-            sword_lock = false;
-            stunned = false;
-
+if (gen_steps &gt; 800) {
+    obj1 = instance_create(0,0, obj_enemy_shooter);
+    with (obj1) {
+        placed = false;
+        while (!placed) {
+            randx = random_range(0,room_width);
+            randy = random_range(0,room_height);
+            if (place_free(randx, randy)) {
+                x = randx;
+                y = randy;
+                placed = true;
+            }
         }
     }
-}*/
+    gen_steps = 0;
+}
 </string>
           </argument>
         </arguments>
