@@ -74,6 +74,7 @@ reloading = 0;
 // related objects
 controlID = 0;
 statsID = 0;
+attack_lines[0] = 0;
 
 
 
@@ -85,6 +86,38 @@ x_axisR = 0;
 y_axisR = 0;
 shoulder_r_pressed = 0;
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>542</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_sprite_transform</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>0</kind>
+            <string>1</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>1</string>
+          </argument>
+          <argument>
+            <kind>0</kind>
+            <string>0</string>
+          </argument>
+          <argument>
+            <kind>4</kind>
+            <string>0</string>
           </argument>
         </arguments>
       </action>
@@ -346,7 +379,47 @@ if (other.shooter != id)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!sprinting) {
+            <string>
+if (!sprinting) {
+  //draw squoze lines
+  prev_alpha = draw_get_alpha();
+  //draw_set_alpha(global.SQUOZE_CONE_ALPHA + global.SQUOZE_CONE_ALPHA * squoze_value);
+  draw_set_alpha(.75);
+    
+  // get triangle points not origin using image angle
+//  x1 = x+dcos(image_angle)*global.SQUOZE_CONE_ORIGIN_ADJUST;
+//  y1 = y-dsin(image_angle)*global.SQUOZE_CONE_ORIGIN_ADJUST;
+  x1 = x+dcos(image_angle - global.SQUOZE_CONE_SIZE*(1-squoze_value*global.SQUOZE_MAX))*50;
+  y1 = y-dsin(image_angle - global.SQUOZE_CONE_SIZE*(1-squoze_value*global.SQUOZE_MAX))*50;
+  x4 = x+dcos(image_angle + global.SQUOZE_CONE_SIZE*(1-squoze_value*global.SQUOZE_MAX))*50;
+  y4 = y-dsin(image_angle + global.SQUOZE_CONE_SIZE*(1-squoze_value*global.SQUOZE_MAX))*50; 
+  x2 = x+dcos(image_angle - global.SQUOZE_CONE_SIZE*(1-squoze_value*global.SQUOZE_MAX))*100;
+  x3 = x+dcos(image_angle + global.SQUOZE_CONE_SIZE*(1-squoze_value*global.SQUOZE_MAX))*100;
+  y2 = y-dsin(image_angle - global.SQUOZE_CONE_SIZE*(1-squoze_value*global.SQUOZE_MAX))*100;
+  y3 = y-dsin(image_angle + global.SQUOZE_CONE_SIZE*(1-squoze_value*global.SQUOZE_MAX))*100;
+  x5 = x+dcos(image_angle) * 85;
+  y5 = y-dsin(image_angle) * 85;
+  x6 = x+dcos(image_angle) * 100;
+  y6 = y-dsin(image_angle) * 100;
+
+    if (!reloading) {
+      //draw_triangle_colour(x1,y1,x2,y2,x3,y3,c_red,c_orange,c_orange,false);
+      draw_line_colour(x1,y1,x2,y2,c_green,c_green);
+      draw_line_colour(x4,y4,x3,y3,c_green,c_green);
+      draw_line_colour(x5,y5,x6,y6,c_green,c_green);
+    }
+    else {
+      draw_line_colour(x1,y1,x2,y2,c_blue,c_green);
+      draw_line_colour(x4,y4,x3,y3,c_blue,c_green);      
+      //draw_triangle_colour(x1,y1,x2,y2,x3,y3,c_blue,c_green,c_green,false);
+    }
+    draw_set_alpha(prev_alpha);
+}
+/*
+
+ORIGINAL FLAVOR
+
+if (!sprinting) {
   //draw squoze triangle
   prev_alpha = draw_get_alpha();
   draw_set_alpha(global.SQUOZE_CONE_ALPHA + global.SQUOZE_CONE_ALPHA * squoze_value);
@@ -365,6 +438,7 @@ if (other.shooter != id)
       draw_triangle_colour(x1,y1,x2,y2,x3,y3,c_blue,c_green,c_green,false);
     draw_set_alpha(prev_alpha);
 }
+
 </string>
           </argument>
         </arguments>

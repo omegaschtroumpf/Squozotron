@@ -716,7 +716,9 @@ gamepad_set_axis_deadzone(player1.deviceID, 0.1);</code>
     <instance objName="obj_solidwall" x="832" y="624" name="inst_04BC4B5E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solidwall" x="848" y="624" name="inst_F7A95FE3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_solidwall" x="864" y="624" name="inst_1B772FB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_shooter" x="944" y="384" name="inst_02BF4EB0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_shooter" x="928" y="80" name="inst_492BA523" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_shooter" x="928" y="400" name="inst_DCC1B7FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_enemy_shooter" x="912" y="672" name="inst_E81ED98E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

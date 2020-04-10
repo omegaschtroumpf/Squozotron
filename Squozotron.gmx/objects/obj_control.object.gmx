@@ -53,7 +53,8 @@ loadGlobals();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>gen_steps++;
+            <string>/*
+gen_steps++;
 
 if (gen_steps &gt; 800) {
     obj1 = instance_create(0,0, obj_enemy_shooter);
@@ -71,6 +72,7 @@ if (gen_steps &gt; 800) {
     }
     gen_steps = 0;
 }
+*/
 </string>
           </argument>
         </arguments>

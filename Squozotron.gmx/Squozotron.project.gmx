@@ -36,6 +36,8 @@
     <sprite>sprites\spr_overdorg</sprite>
     <sprite>sprites\spr_dorg2</sprite>
     <sprite>sprites\spr_cover</sprite>
+    <sprite>sprites\spr_water_bullet</sprite>
+    <sprite>sprites\spr_flame_bullet</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_main</background>
@@ -54,6 +56,8 @@
       <object>objects\obj_environment</object>
       <object>objects\obj_enemy</object>
     </objects>
+    <object>objects\obj_water_bullet</object>
+    <object>objects\obj_flame_bullet</object>
     <object>objects\obj_bullet</object>
     <objects name="Control">
       <object>objects\obj_control</object>

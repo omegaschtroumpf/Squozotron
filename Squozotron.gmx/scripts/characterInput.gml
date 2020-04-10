@@ -18,7 +18,25 @@ if (gamepad_is_connected(deviceID)) {
     // update image_angle if just beginning to sprint
     if (gamepad_button_check_pressed(deviceID, gp_face1))
         image_angle = point_direction(0, 0, x_axisL, y_axisL);
-    
+
+        
+    if (gamepad_button_check_pressed(deviceID, gp_face2)) {
+        if (global.BULLET_EFFECT_INDEX == 8) global.BULLET_EFFECT_INDEX = 0;
+        else global.BULLET_EFFECT_INDEX++; 
+    }
+    if (gamepad_button_check_pressed(deviceID, gp_face3)) {
+        if (global.BULLET_EFFECT_COLOR_INDEX == 17) global.BULLET_EFFECT_COLOR_INDEX = 0;
+        else global.BULLET_EFFECT_COLOR_INDEX++;
+    }
+    if (gamepad_button_check_pressed(deviceID, gp_face4)) {
+        if (global.BULLET_EFFECT_SIZE_INDEX == 2) global.BULLET_EFFECT_SIZE_INDEX = 0;
+        else global.BULLET_EFFECT_SIZE_INDEX++;
+    }
+    if (gamepad_button_check_pressed(deviceID, gp_shoulderl)) {
+        if (global.GUN_TYPE_INDEX == 3) global.GUN_TYPE_INDEX = 0;
+        else global.GUN_TYPE_INDEX++;
+        show_debug_message(global.GUN_TYPE_INDEX)
+    }
 }
 else {
     /*
